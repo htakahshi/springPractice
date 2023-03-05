@@ -26,6 +26,15 @@ public class UserController {
     UserService userService;
 
     /**
+     * 初期画面を表示
+     * @return 初期画面のHTML
+     */
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public String start() {
+      return "top/top";
+    }
+
+    /**
      * ユーザー情報一覧画面を表示
      * @param model Model
      * @return ユーザー情報一覧画面
