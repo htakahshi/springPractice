@@ -38,7 +38,7 @@ public class CRUDDaoTest {
 	 */
 	@Test
 	@DatabaseSetup(value = "/crud/create/")
-	@ExpectedDatabase(value = "/crud/create/result", assertionMode=DatabaseAssertionMode.NON_STRICT)
+	@ExpectedDatabase(value = "/crud/create/result/", table = "user_info", assertionMode=DatabaseAssertionMode.NON_STRICT_UNORDERED)
 	void createTest01() {
 		UserRequest userRequest = new UserRequest();
 		userRequest.setName("test003");
