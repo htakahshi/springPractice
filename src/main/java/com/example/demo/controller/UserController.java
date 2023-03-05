@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.example.demo.dto.UserRequest;
-import com.example.demo.entity.User;
+import com.example.demo.entity.UserInfo;
 import com.example.demo.service.UserService;
 
 /**
@@ -41,7 +41,7 @@ public class UserController {
      */
     @RequestMapping(value = "/user/list", method = RequestMethod.GET)
     public String displayList(Model model) {
-        List<User> userlist = userService.searchAll();
+        List<UserInfo> userlist = userService.searchAll();
         model.addAttribute("userlist", userlist);
         return "user/list";
     }

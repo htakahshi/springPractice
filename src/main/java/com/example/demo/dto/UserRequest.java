@@ -16,12 +16,7 @@ public class UserRequest implements Serializable {
     private String name;
 
     /**
-     * 住所
+     * パスワード
      */
-    private String address;
-
-    /**
-     * 電話番号
-     */
-    private String phone;
+    private String password;
 }

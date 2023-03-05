@@ -1,7 +1,6 @@
 package com.example.demo.entity;
 
 import java.io.Serializable;
-import java.util.Date;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -16,8 +15,8 @@ import lombok.Data;
  */
 @Entity
 @Data
-@Table(name = "user")
-public class User implements Serializable {
+@Table(name = "user_info")
+public class UserInfo implements Serializable {
 
     /**
      * ID
@@ -34,32 +33,8 @@ public class User implements Serializable {
     private String name;
 
     /**
-     * 住所
+     * パスワード
      */
-    @Column(name = "address")
-    private String address;
-
-    /**
-     * 電話番号
-     */
-    @Column(name = "phone")
-    private String phone;
-
-    /**
-     * 更新日時
-     */
-    @Column(name = "update_date")
-    private Date updateDate;
-
-    /**
-     * 登録日時
-     */
-    @Column(name = "create_date")
-    private Date createDate;
-
-    /**
-     * 削除日時
-     */
-    @Column(name = "delete_date")
-    private Date deleteDate;
+    @Column(name = "password")
+    private String password;
 }

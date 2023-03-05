@@ -1,6 +1,5 @@
 package com.example.demo.service;
 
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.demo.dto.UserRequest;
-import com.example.demo.entity.User;
+import com.example.demo.entity.UserInfo;
 import com.example.demo.repository.UserRepository;
 
 /**
@@ -28,7 +27,7 @@ public class UserService {
      * ユーザー情報 全検索
      * @return 検索結果
      */
-    public List<User> searchAll() {
+    public List<UserInfo> searchAll() {
         return userRepository.findAll();
     }
 
@@ -45,15 +44,11 @@ public class UserService {
      * @param userRequest ユーザー情報リクエストデータ
      * @return ユーザーTBLエンティティ
      */
-    private User CreateUser(UserRequest userRequest) {
-        Date now = new Date();
+    private UserInfo CreateUser(UserRequest userRequest) {
 
-        User user = new User();
+        UserInfo user = new UserInfo();
         user.setName(userRequest.getName());
-        user.setAddress(userRequest.getAddress());
-        user.setPhone(userRequest.getPhone());
-        user.setCreateDate(now);
-        user.setUpdateDate(now);
+        user.setPassword(userRequest.getPassword());
 
         return user;
     }
