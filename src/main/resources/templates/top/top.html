@@ -3,13 +3,16 @@
 <head>
 <title>ユーザー情報</title>
 <link href="/css/list.css" rel="stylesheet"></link>
+<link th:href="@{/webjars/bootstrap/4.5.2/css/bootstrap.min.css}" rel="stylesheet" ></link>
 <meta charset="utf-8" />
 </head>
 <body>
-<h1>ユーザー情報</h1>
+<div class="page-header">
+	<h1>ユーザー情報</h1>
+</div>
     <form th:action="@{/user/list}" th:method="GET">
         <div>
-            <input type="submit" value="一覧表示" style="width: 100px;" />
+            <input class="btn btn-primary" type="submit" value="一覧表示" style="width: 100px;" />
         </div>
         <br />
     </form>

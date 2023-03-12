@@ -4,15 +4,18 @@
 <head>
 <title>ユーザー情報一覧</title>
 <link href="/css/list.css" rel="stylesheet"></link>
+<link th:href="@{/webjars/bootstrap/4.5.2/css/bootstrap.min.css}" rel="stylesheet" ></link>
 <meta charset="utf-8" />
 </head>
 <body>
+<div class="page-header">
     <h1>ユーザー情報一覧</h1>
+</div>
     <div>
         <a th:href="@{/user/add}">新規登録はこちら</a>
     </div>
-    <table>
-        <thead>
+    <table class="table">
+        <thead class="table-light">
             <tr>
                 <th>ID</th>
                 <th>名前</th>
@@ -30,7 +33,7 @@
     <br/>
     <form th:action="@{/}" th:method="GET">
         <div>
-            <input type="submit" value="戻る" style="width: 100px;" />
+            <input class="btn btn-primary" type="submit" value="戻る" style="width: 100px;" />
         </div>
         <br />
     </form>
