@@ -48,6 +48,9 @@ public class CRUDDaoTest {
 		userService.create(userRequest);
 	}
 
+	/**
+	 * update処理で変更したレコードが更新されるか検証する
+	 */
 	@Test
 	@DatabaseSetup(value = "/crud/update/")
 	@ExpectedDatabase(value = "/crud/update/result/", table = "user_info", assertionMode=DatabaseAssertionMode.NON_STRICT)
@@ -60,6 +63,9 @@ public class CRUDDaoTest {
 		userService.update(userInfo);
 	}
 
+	/**
+	 * delete処理で選択されたレコードが削除されるか検証する
+	 */
 	@Test
 	@DatabaseSetup(value = "/crud/delete/")
 	@ExpectedDatabase(value = "/crud/delete/result/", table = "user_info", assertionMode=DatabaseAssertionMode.NON_STRICT)

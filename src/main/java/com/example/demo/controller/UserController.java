@@ -49,7 +49,7 @@ public class UserController {
     /**
      * ユーザー新規登録画面を表示
      * @param model Model
-     * @return ユーザー情報一覧画面
+     * @return ユーザー新規登録画面
      */
     @RequestMapping(value = "/user/add", method = RequestMethod.GET)
     public String displayAdd(Model model) {
