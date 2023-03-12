@@ -24,6 +24,14 @@ public class UserService {
     UserRepository userRepository;
 
     /**
+     * ユーザー情報 主キー検索
+     * @return 検索結果
+     */
+    public UserInfo findById(Long id) {
+      return userRepository.findById(id).get();
+    }
+
+    /**
      * ユーザー情報 全検索
      * @return 検索結果
      */
@@ -51,5 +59,22 @@ public class UserService {
         user.setPassword(userRequest.getPassword());
 
         return user;
+    }
+
+    /**
+     * ユーザー情報更新
+     * @param userInfo ユーザーEntity
+     */
+    public void update(UserInfo userInfo) {
+    	userRepository.saveAndFlush(userInfo);
+    }
+
+    /**
+     * ユーザー情報削除
+     * @param id ユーザーID
+     */
+    public void delete(Long id) {
+    	UserInfo userInfo = findById(id);
+    	userRepository.delete(userInfo);
     }
 }

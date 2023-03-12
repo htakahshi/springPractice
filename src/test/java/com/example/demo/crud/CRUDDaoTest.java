@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.example.demo.CsvDataSetLoader;
 import com.example.demo.SpringPracticeApplication;
 import com.example.demo.dto.UserRequest;
+import com.example.demo.entity.UserInfo;
 import com.example.demo.service.UserService;
 import com.github.springtestdbunit.DbUnitTestExecutionListener;
 import com.github.springtestdbunit.annotation.DatabaseSetup;
@@ -38,13 +39,34 @@ public class CRUDDaoTest {
 	 */
 	@Test
 	@DatabaseSetup(value = "/crud/create/")
-	@ExpectedDatabase(value = "/crud/create/result/", table = "user_info", assertionMode=DatabaseAssertionMode.NON_STRICT_UNORDERED)
+	@ExpectedDatabase(value = "/crud/create/result/", table = "user_info", assertionMode=DatabaseAssertionMode.NON_STRICT)
 	void createTest01() {
 		UserRequest userRequest = new UserRequest();
 		userRequest.setName("test003");
 		userRequest.setPassword("333333");
 		
 		userService.create(userRequest);
+	}
+
+	@Test
+	@DatabaseSetup(value = "/crud/update/")
+	@ExpectedDatabase(value = "/crud/update/result/", table = "user_info", assertionMode=DatabaseAssertionMode.NON_STRICT)
+	void updateTest01() {
+		UserInfo userInfo = new UserInfo();
+		userInfo.setId(Long.parseLong("1"));
+		userInfo.setName("テスト十郎");
+		userInfo.setPassword("12341234");
+		
+		userService.update(userInfo);
+	}
+
+	@Test
+	@DatabaseSetup(value = "/crud/delete/")
+	@ExpectedDatabase(value = "/crud/delete/result/", table = "user_info", assertionMode=DatabaseAssertionMode.NON_STRICT)
+	void deleteTest01() {
+		
+		userService.delete(Long.parseLong("1"));
+		userService.searchAll();
 	}
 }
 
